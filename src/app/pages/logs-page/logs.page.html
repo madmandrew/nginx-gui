@@ -1,0 +1,39 @@
+<div style="width: 100%; display: flex; justify-content: space-between">
+  <div>
+    <h2 style="margin: 0">Access Log</h2>
+  </div>
+  <div style="align-self: flex-end">
+    <span style="font-size: 12px">Last Updated: {{accessLastUpdated | date : 'mediumTime'}}</span>
+    <button mat-icon-button (click)="refreshFiles()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+</div>
+<ag-grid-angular
+  class="ag-theme-balham-dark"
+  [rowData]="accessLog"
+  [columnDefs]="columns"
+  style="height: 40vh"
+  (gridReady)="accessGridReady($event)"
+>
+</ag-grid-angular>
+
+<div style="width: 100%; display: flex; justify-content: space-between">
+  <div>
+    <h2 style="margin: 0">Error Log</h2>
+  </div>
+  <div style="align-self: flex-end">
+    <span style="font-size: 12px">Last Updated: {{errorLastUpdated | date : 'mediumTime'}}</span>
+    <button mat-icon-button (click)="refreshFiles()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+</div>
+<ag-grid-angular
+  class="ag-theme-balham-dark"
+  [rowData]="errorLog"
+  [columnDefs]="columns"
+  style="height: 40vh"
+  (gridReady)="errorGridReady($event)"
+>
+</ag-grid-angular>

@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <span>Nginx GUI</span>
+
+  <button mat-button routerLink="/landing">Home</button>
+  <button mat-button routerLink="/logs">Logs</button>
+  <button mat-button routerLink="/config">Config</button>
+
+  <span style="display: flex; flex-grow: 1;"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">Commands</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="false; $event.stopPropagation();"><mat-checkbox [(ngModel)]="runOnStartup" (change)="runOnStartupChange()">Run On Startup</mat-checkbox></button>
+    <button mat-menu-item (click)="start()">Start Nginx</button>
+    <button mat-menu-item (click)="stop()">Stop Nginx</button>
+    <button mat-menu-item (click)="reload()">Reload Nginx</button>
+  </mat-menu>
+</mat-toolbar>

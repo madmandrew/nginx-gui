@@ -1,0 +1,52 @@
+<mat-card style="width: 400px; padding: 4px; margin: 8px;">
+  <mat-form-field style="width: 400px" color="accent">
+    <mat-label>Path To Nginx</mat-label>
+    <input matInput placeholder="(C:/nginx-1.17.1/)" [(ngModel)]="nginxPath" (ngModelChange)="setPath()"/>
+  </mat-form-field>
+</mat-card>
+<!--___________________________________________________________________-->
+<!--                            Tasks                                  -->
+<!--___________________________________________________________________-->
+<div style="width: 100%; display: flex; justify-content: space-between">
+  <div>
+    <h2 style="margin: 0">Running Tasks</h2>
+    <span>NOTE: there should be 2 running tasks, 1 master and 1 worker</span>
+  </div>
+  <div style="align-self: flex-end">
+    <span style="font-size: 12px">Last Updated: {{tasksLastUpdated | date : 'mediumTime'}}</span>
+    <button mat-icon-button (click)="refreshTasks()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+</div>
+<ag-grid-angular
+  class="ag-theme-balham-dark"
+  [rowData]="tasks"
+  [columnDefs]="taskColumns"
+  style="height: 35vh"
+  (gridReady)="taskGridReady($event)"
+>
+</ag-grid-angular>
+
+<!--___________________________________________________________________-->
+<!--                            ERRORS                                 -->
+<!--___________________________________________________________________-->
+<div style="width: 100%; display: flex; justify-content: space-between">
+  <h2>Application Errors</h2>
+
+  <div style="align-self: flex-end">
+    <span style="font-size: 12px">Last Updated: {{errorsLastUpdated | date : 'mediumTime'}}</span>
+    <button mat-icon-button (click)="refreshErrors()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-button (click)="clearErrors()">clear</button>
+  </div>
+</div>
+<ag-grid-angular
+  class="ag-theme-balham-dark"
+  [rowData]="errors"
+  [columnDefs]="errorColumns"
+  style="height: 35vh"
+  (gridReady)="errorGridReady($event)"
+>
+</ag-grid-angular>
