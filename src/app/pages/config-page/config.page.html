@@ -1,0 +1,17 @@
+<div style="display: flex; align-items: center">
+  <h1 style="margin: 0;">Nginx Config</h1>
+
+  <div style="display: flex; flex-grow: 1"></div>
+
+  <button mat-raised-button color="accent" style="margin: 8px">
+    <mat-icon>add</mat-icon>
+    Add Entry
+  </button>
+  <button mat-icon-button (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</div>
+
+<mat-card style="height: 75vh;">
+  <div style="white-space: pre-wrap; height: 100%; overflow: auto">{{config}}</div>
+</mat-card>
