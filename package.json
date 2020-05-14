@@ -5,7 +5,10 @@
   "scripts": {
     "serve": "ng serve --open",
     "start:electron": "ng build --base-href ./ && electron .",
-    "build": "ng build --base-href ./ --prod && electron-packager . --ignore=/e2e --ignore=/src --ignore=/.idea --overwrite --icon 'nginx-logo.png'"
+    "build": "ng build --base-href ./ --prod && electron-packager . --ignore=/e2e --ignore=/src --ignore=/.idea --overwrite --icon 'nginx_logo2.ico'"
+  },
+  "build": {
+    "appId": "com.nginx.gui"
   },
   "private": true,
   "dependencies": {

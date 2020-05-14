@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain, Tray, Menu, nativeImage, Notification, electron} = require('electron')
+const {app, BrowserWindow, ipcMain, Tray, Menu, nativeImage, Notification} = require('electron');
 const url = require("url");
 const path = require("path");
 const nodeCmd = require('node-cmd');
@@ -14,7 +14,6 @@ let isRunning = false;
 let errors = [];
 
 if (store.get('runOnStartup') == null) {
-  console.log("Set run on startup")
   app.setLoginItemSettings({
     openAtLogin: true,
     path: app.getPath('exe')
